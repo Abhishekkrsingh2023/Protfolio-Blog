@@ -19,13 +19,13 @@ const projects = [
     image: "/project-images/portfolio.png",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
     codeUrl: "https://github.com/Abhishekkrsingh2023/",
-    liveUrl: "https://abhishek.dev",
+    liveUrl: "https://developerabhishek.me",
     live: true,
   },
   {
     id: "markdown-converter",
     title: "Markdown Converter",
-    summary: "A simple yet powerful markdown to pdf/doc converter.",
+    summary: "A simple yet powerful markdown to pdf/doc converter. Containerized and can run locally.",
     date: "2026",
     image: "/project-images/markdown-converter.jpg",
     techStack: ["Python", "FastAPI", "Docker", "pypandoc", "latex"],
@@ -40,8 +40,8 @@ const projects = [
     date: "2026",
     image: "/project-images/Code0.png",
     techStack: ["Python", "FastAPI", "Redis", "Docker", "subprocess"],
-    codeUrl: "https://github.com/abhishek/code0",
-    liveUrl: "https://code0.abhishek.dev",
+    codeUrl: "https://github.com/Abhishekkrsingh2023/",
+    liveUrl: "",
     live: false,
   },
   {
@@ -50,10 +50,10 @@ const projects = [
     summary: "A full-stack e-commerce application with product listings, cart, and checkout.",
     date: "2025",
     image: "/project-images/buynow.png",
-    techStack: ["React", "Redux", "Chart.js"],
-    codeUrl: "https://github.com/abhishek/ecom-dashboard",
-    liveUrl: "https://ecom-dash.example.com",
-    live: true,
+    techStack: ["React", "FastAPI", "MongoDB", "Docker"],
+    codeUrl: "https://github.com/Abhishekkrsingh2023/ecommerce-app",
+    liveUrl: "",
+    live: false,
   },
 ];
 
@@ -120,6 +120,9 @@ const ProjectCard = ({ project, router }: { project: (typeof projects)[0]; route
         <div className="flex gap-3">
           <Link
             href={project.codeUrl}
+            onClick={(e) => e.stopPropagation()}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 py-2 px-3 text-xs font-mono text-[#7C8AA8] border border-[#26314f] rounded hover:border-[#4FD1C5] hover:text-[#4FD1C5] transition-colors"
           >
             <span className="text-[#4FD1C5]"><FaCode /></span> code
@@ -128,9 +131,12 @@ const ProjectCard = ({ project, router }: { project: (typeof projects)[0]; route
             <div>
               <Link
                 href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono text-[#7C8AA8] border border-[#26314f] rounded hover:border-[#36c766] hover:text-[#36c766] transition-colors"
               >
-                <span className="text-[#36c766] pb-[2px]"><FaCircleDot size={10} /></span> live
+                <span className="text-[#36c766] pb-0.5"><FaCircleDot size={10} /></span> live
               </Link>
             </div>
           )}

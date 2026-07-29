@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
-import TopBar from "@/components/TopBar";
+// import TopBar from "@/components/TopBar";
 
 import toast, { Toaster } from "react-hot-toast";
 
