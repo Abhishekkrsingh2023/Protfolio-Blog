@@ -7,6 +7,13 @@ import Image from "next/image";
 import { FaCircleDot, FaCode } from "react-icons/fa6";
 import { FaRegDotCircle } from "react-icons/fa";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Abhishek Singh",
+  description: "Explore my projects, from personal initiatives to collaborative efforts. See how I apply my skills in full-stack development and DevOps.",
+};
+
 const projects = [
     {
         id: "portfolio-website",

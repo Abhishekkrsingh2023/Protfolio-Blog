@@ -4,6 +4,13 @@ import SectionLabel from "@/components/SectionLabel";
 import Reveal from "@/components/Reveal";
 import Connect from "@/components/Connect";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "blog | Abhishek Singh",
+  description: "Read my latest articles and updates on web development, DevOps, and technology trends.",
+};
+
 export default function UnderConstructionPage() {
   return (
     <div className="min-h-[60%] bg-[#0B1120] text-[#E8ECF4] font-sans leading-relaxed">

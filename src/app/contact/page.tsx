@@ -1,11 +1,17 @@
 "use client";
 
+import type { Metadata } from "next";
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 // import TopBar from "@/components/TopBar";
 
 import toast, { Toaster } from "react-hot-toast";
+
+export const metadata: Metadata = {
+  title: "Contact | Abhishek Singh",
+  description: "Get in touch with Abhishek Singh, a Full Stack Developer & DevOps enthusiast. Fill out the form to send me a message or connect with me on social media.",
+};
 
 type Status = "idle" | "loading" | "success" | "error";
 

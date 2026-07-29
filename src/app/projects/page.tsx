@@ -1,13 +1,18 @@
 "use client"
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import type { Metadata } from "next";
 
 import SectionLabel from '@/components/SectionLabel'
 import Reveal from '@/components/Reveal'
 import Connect from "@/components/Connect";
 import { FaCircleDot, FaCode } from "react-icons/fa6";
-import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "Projects | Abhishek Singh",
+  description: "Explore my projects, from personal initiatives to collaborative efforts. See how I apply my skills in full-stack development and DevOps.",
+};
 
 // ---------- Demo Data ----------
 const projects = [
