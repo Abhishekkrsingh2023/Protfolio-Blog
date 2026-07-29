@@ -15,15 +15,15 @@ const experienceCards = [
         ]
     },
     {
-        title: "Coder's Club Secretary & Tecchnical Lead",
+        title: "Coder's Club Secretary & Technical Lead",
         company: "Coder's Club, BBIT Kolkata",
         duration: "Dec 2025 – Present",
         summary: "Leading the Coder's Club at BBIT Kolkata, organizing coding events, workshops, and hackathons to foster a culture of learning and innovation among students.",
         techStack: ["Python", "FastAPI", "React", "Node.js", "PostgreSQL", "SQLAlchemy", "Docker", "Redis", "MongoDB", "OpenAI", "Claude", "Next.js"],
         details: [
-            "Implemented caching strategies using Redis, improving response times by 30%.",
-            "Refactored legacy codebase, enhancing maintainability and reducing technical debt.",
-            "Integrated third-party services and APIs to extend application functionality."
+            "Managed a team of developers and designers to create engaging coding challenges and workshops.",
+            "Organized hackathons and coding competitions, attracting participants from various colleges and universities.",
+            "Guide students in their projects, providing mentorship and technical support to help them succeed."
         ]
     },
     // Add more experience cards as needed
