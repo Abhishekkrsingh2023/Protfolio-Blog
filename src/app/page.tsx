@@ -6,23 +6,31 @@ import { useEffect, useState } from "react";
 
 import { MdVerified, MdOutlineReadMore } from "react-icons/md";
 
-import TechStack from "@/components/TechStack";
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import Intro from "@/components/home/Intro";
 import TopBar from "@/components/TopBar";
 import TechStackFloat from "@/components/TechStackFloating";
+import Connect from "@/components/Connect";
 
 
 function Endpoint({ children, }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Reveal>
-      <div className="border border-[#26314f] rounded-lg bg-[#121A2E] mb-3.5 overflow-hidden">
-        <div className="flex items-center gap-3 px-[18px] py-3.5 font-mono text-[13.5px]">
+      <div className="border border-[#26314f] rounded-lg bg-[#121A2E] mb-3.5 overflow-hidden hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
+        <div className="flex items-center gap-3 px-4.5 py-3.5 font-mono text-[13.5px]">
         </div>
-        <div className="px-[18px] pb-[18px] text-[#7C8AA8] text-[14.5px]">{children}</div>
+        <div className="px-4.5 pb-4.5 text-[#7C8AA8] text-[14.5px]">{children}</div>
       </div>
     </Reveal>
+  );
+}
+
+function HoverEffect({ children, }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <div className="hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
+      {children}
+    </div>
   );
 }
 
@@ -30,20 +38,6 @@ export default function Portfolio() {
   const [typed, setTyped] = useState("");
   const [showYaml, setShowYaml] = useState(false);
   const command = "whoami --verbose";
-
-  const [uptime, setUptime] = useState("");
-
-  useEffect(() => {
-    const update = () => {
-      setUptime(new Date().toLocaleString());
-    };
-
-    update();
-
-    const id = setInterval(update, 1000);
-
-    return () => clearInterval(id);
-  }, []);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -69,20 +63,24 @@ export default function Portfolio() {
       {/* topbar */}
       <TopBar to="" />
 
-      <div className="max-w-[920px] mx-auto px-6">
+      <div className="max-page-width mx-auto px-6">
         {/* hero terminal */}
         <div className="py-10 pb-12">
           <div className="flex flex-col md:flex-row items-center gap-6">
             {/* intro section  */}
-            <Intro typed={typed} showYaml={showYaml} />
+            <HoverEffect>
+              <Intro typed={typed} showYaml={showYaml} />
+            </HoverEffect>
             {/* image section */}
-            <div className="bg-[#121A2E] w-88 md:w-86 transition-all duration-300 ease-in-out rounded-xl shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] overflow-hidden relative border border-[#26314f]">
-              <Image src="/images/my-pic.png" alt="Abhishek Singh" width={330} height={330} />
-              {/* ✅ Blue Verified Badge */}
-              <div className="absolute top-1 right-1 rounded-full flex items-center justify-center shadow-lg text-xl text-cyan-500">
-                <MdVerified />
+            <HoverEffect>
+              <div className="bg-[#121A2E] w-88 md:w-86 transition-all duration-300 ease-in-out rounded-xl shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] overflow-hidden relative border border-[#26314f]">
+                <Image src="/images/my-pic.png" alt="Abhishek Singh" width={330} height={330} />
+                {/* ✅ Blue Verified Badge */}
+                <div className="absolute top-1 right-1 rounded-full flex items-center justify-center shadow-lg text-xl text-cyan-500">
+                  <MdVerified />
+                </div>
               </div>
-            </div>
+            </HoverEffect>
           </div>
         </div>
 
@@ -112,9 +110,9 @@ export default function Portfolio() {
             <div className="flex mt-4">
               <Link href="/about"
                 className="flex items-center justify-center text-[#4FD1C5] bg-cyan-500/8 group p-2 rounded-lg border border-cyan-600/10 hover:bg-cyan-500/15 hover:text-orange-400 min-w-36 hover:cursor-pointer
-                            hover:scale-[1.02] duration-200 gap-1.5
+                            hover:scale-[1.02] duration-200 gap-2
                             ">
-                <MdOutlineReadMore size={18} /> know more
+                <MdOutlineReadMore size={20} /> know more
               </Link>
             </div>
           </Endpoint>
@@ -123,10 +121,9 @@ export default function Portfolio() {
         {/* stack */}
         <section id="stack" className="py-9">
           <SectionLabel method="GET"> <span>/stack?<span className="text-orange-400 space-x-0">learning=endless</span></span></SectionLabel>
-          {/* <Endpoint>
-            <TechStack />
-          </Endpoint> */}
-          <TechStackFloat />
+          <div className="hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
+            <TechStackFloat />
+          </div>
         </section>
 
         {/* focus */}
@@ -153,13 +150,7 @@ export default function Portfolio() {
         <section id="looking-for" className="py-9">
           <SectionLabel method="POST"> /collab</SectionLabel>
           <Reveal>
-            <div className="border border-[#F2B84B] rounded-lg px-[22px] py-5 bg-linear-to-b from-[#F2B84B]/6 to-transparent">
-              <div className="font-mono text-xs text-[#F2B84B] mb-2">status: open</div>
-              <p className="text-[#E8ECF4] text-[15px]">
-                Looking for collaborators on FastAPI, React, Dockerized, and Node.js projects. If that
-                overlaps with what you&apos;re building, send a request.
-              </p>
-            </div>
+            <Connect />
           </Reveal>
         </section>
       </div>
