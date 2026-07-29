@@ -11,6 +11,7 @@ import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
 import Intro from "@/components/home/Intro";
 import TopBar from "@/components/TopBar";
+import TechStackFloat from "@/components/TechStackFloating";
 
 
 function Endpoint({ children, }: Readonly<{ children: React.ReactNode }>) {
@@ -122,9 +123,10 @@ export default function Portfolio() {
         {/* stack */}
         <section id="stack" className="py-9">
           <SectionLabel method="GET"> <span>/stack?<span className="text-orange-400 space-x-0">learning=endless</span></span></SectionLabel>
-          <Endpoint>
+          {/* <Endpoint>
             <TechStack />
-          </Endpoint>
+          </Endpoint> */}
+          <TechStackFloat />
         </section>
 
         {/* focus */}

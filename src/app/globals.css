@@ -1,3 +1,24 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #121A2E;
+    --border-color: #26314f;
+}
+
+
+.max-page-width {
+  max-width: 920px;
+}
+
+.bg-color {
+  background-color: var(--background);
+}
+
+.add-border {
+    border-color: var(--border-color);
+    border-width: 1px;
+}
+
