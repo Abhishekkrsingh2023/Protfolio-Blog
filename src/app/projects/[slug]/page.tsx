@@ -10,7 +10,7 @@ import { FaRegDotCircle } from "react-icons/fa";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects | Abhishek Singh",
+  title: "Project",
   description: "Explore my projects, from personal initiatives to collaborative efforts. See how I apply my skills in full-stack development and DevOps.",
 };
 
@@ -154,7 +154,8 @@ export default async function ProjectDetailsPage({
                             alt={project.title}
                             width={800}
                             height={400}
-                            className="w-full max-h-[500px] object-cover rounded-md border border-[#26314f] mb-6"
+                            className="w-full max-h-125 object-cover rounded-md border border-[#26314f] mb-6"
+                            priority
                         />
 
                         {/* Title, Date, Role, Status */}

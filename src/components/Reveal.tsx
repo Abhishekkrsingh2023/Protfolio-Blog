@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 
 function Reveal({ children, className = "" }: Readonly<{ children: React.ReactNode; className?: string }>) {

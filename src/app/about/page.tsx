@@ -1,4 +1,3 @@
-"use client";
 
 // import Link from "next/link";
 import Image from "next/image";
@@ -13,7 +12,7 @@ import Connect from "@/components/Connect";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | Abhishek Singh",
+  title: "About",
   description: "Learn more about Abhishek Singh, a Full Stack Developer & DevOps enthusiast. Explore his experience, tech stack, certifications, and how to connect with me. Discover my approach to building scalable web applications and contributing to open-source projects.",
 };
 
