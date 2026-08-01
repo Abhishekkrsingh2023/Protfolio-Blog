@@ -1,5 +1,5 @@
 
-// import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import TechStack from "@/components/TechStack";
@@ -9,7 +9,6 @@ import Certificate from "@/components/Certificate";
 import ExperienceSection from "@/components/about/ExperienceSection";
 import Connect from "@/components/Connect";
 
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",

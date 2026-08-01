@@ -4,8 +4,6 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import logo from "@/app/abhi-logo.jpg"
-
 import { IoHome } from "react-icons/io5";
 import { BsInfoSquare } from "react-icons/bs";
 import { RiContactsLine } from "react-icons/ri";
@@ -114,9 +112,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                         ))}
                     </ul>
                 </div>
-                <div>
-                    {/* <TerminalDemo /> */}
-                </div>
+                
                 {/* socials */}
                 <div className="flex flex-col items-center gap-3 border-t border-[#26314f] pt-4 pb-6">
                     <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7C8AA8]">

@@ -41,7 +41,7 @@ const Footer = () => {
         return () => clearInterval(id);
     }, []);
     return (
-        <div className="max-w-[920px] mx-auto px-6 mt-10">
+        <div className="max-page-width mx-auto px-6 mt-10">
             {/* socials */}
             <div className="flex flex-col items-center gap-3 border-t border-[#26314f] pt-4 pb-6">
                 <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-[#7C8AA8]">
