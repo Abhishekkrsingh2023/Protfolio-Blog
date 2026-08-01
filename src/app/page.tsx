@@ -74,7 +74,7 @@ export default function Portfolio() {
             {/* image section */}
             <HoverEffect>
               <div className="bg-[#121A2E] w-88 md:w-86 transition-all duration-300 ease-in-out rounded-xl shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] overflow-hidden relative border border-[#26314f]">
-                <Image src="/images/my-pic.png" alt="Abhishek Singh" width={330} height={330} />
+                <Image src="/images/my-pic.png" alt="Abhishek Singh" width={330} height={330} priority />
                 {/* ✅ Blue Verified Badge */}
                 <div className="absolute top-1 right-1 rounded-full flex items-center justify-center shadow-lg text-xl text-cyan-500">
                   <MdVerified />
