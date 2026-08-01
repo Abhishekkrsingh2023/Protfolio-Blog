@@ -65,11 +65,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
                             </span>
                         ))}
                     </div>
+
                     {/* Action Buttons */}
                     <div className="flex gap-3">
                         <button
                             type="button"
                             onClick={(e) => {
+                                e.preventDefault();
                                 e.stopPropagation();
                                 window.open(project.codeUrl, "_blank", "noopener,noreferrer");
                             }}
@@ -77,11 +79,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
                         >
                             <span className="text-[#4FD1C5]"><FaCode /></span> code
                         </button>
+
                         {project.live && (
                             <div>
                                 <button
                                     type="button"
                                     onClick={(e) => {
+                                        e.preventDefault();
                                         e.stopPropagation();
                                         window.open(project.liveUrl, "_blank", "noopener,noreferrer");
                                     }}
