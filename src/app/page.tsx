@@ -1,133 +1,76 @@
-"use client";
-
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-import { MdVerified, MdOutlineReadMore } from "react-icons/md";
+import { MdOutlineReadMore } from "react-icons/md";
 
 import Reveal from "@/components/Reveal";
 import SectionLabel from "@/components/SectionLabel";
-import Intro from "@/components/home/Intro";
+import Endpoint from "@/components/Endpoint";
+import HeroTerminal from "@/components/home/HeroTerminal";
 import TopBar from "@/components/TopBar";
 import TechStackFloat from "@/components/TechStackFloating";
 import Connect from "@/components/Connect";
 
+export const metadata: Metadata = {
+  title: "Abhishek Singh | Full Stack Developer & DevOps Engineer",
+  description:
+    "Portfolio and blog of Abhishek Singh — Full Stack Developer & DevOps enthusiast building responsive, user-friendly web applications.",
+};
 
-function Endpoint({ children, }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <Reveal>
-      <div className="border border-[#26314f] rounded-lg bg-[#121A2E] mb-3.5 overflow-hidden hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
-        <div className="flex items-center gap-3 px-4.5 py-3.5 font-mono text-[13.5px]">
-        </div>
-        <div className="px-4.5 pb-4.5 text-[#7C8AA8] text-[14.5px]">{children}</div>
-      </div>
-    </Reveal>
-  );
-}
-
-function HoverEffect({ children, }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <div className="hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
-      {children}
-    </div>
-  );
-}
-
-export default function Portfolio() {
-  const [typed, setTyped] = useState("");
-  const [showYaml, setShowYaml] = useState(false);
-  const command = "whoami --verbose";
-
-  useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      setTyped(command);
-      setShowYaml(true);
-      return;
-    }
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      setTyped(command.slice(0, i));
-      if (i >= command.length) {
-        clearInterval(interval);
-        setTimeout(() => setShowYaml(true), 300);
-      }
-    }, 55);
-    return () => clearInterval(interval);
-  }, []);
-
+export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-[#0B1120] text-[#E8ECF4] font-sans leading-relaxed">
-      {/* topbar */}
       <TopBar to="" />
 
-      <div className="max-page-width mx-auto px-6">
-        {/* hero terminal */}
-        <div className="py-10 pb-12">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            {/* intro section  */}
-            <HoverEffect>
-              <Intro typed={typed} showYaml={showYaml} />
-            </HoverEffect>
-            {/* image section */}
-            <HoverEffect>
-              <div className="bg-[#121A2E] w-88 md:w-86 transition-all duration-300 ease-in-out rounded-xl shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] overflow-hidden relative border border-[#26314f]">
-                <Image src="/images/my-pic.png" alt="Abhishek Singh" width={330} height={330} priority />
-                {/* ✅ Blue Verified Badge */}
-                <div className="absolute top-1 right-1 rounded-full flex items-center justify-center shadow-lg text-xl text-cyan-500">
-                  <MdVerified />
-                </div>
-              </div>
-            </HoverEffect>
-          </div>
-        </div>
+      <main className="max-page-width mx-auto px-6">
+        {/* Hero Terminal */}
+        <HeroTerminal />
 
-        {/* about */}
-        <section id="about" className="py-9">
+        {/* About Section */}
+        <section id="about" className="py-6">
           <SectionLabel method="GET"> /about</SectionLabel>
-          <Endpoint >
+          <Endpoint>
             <p>
-              I'm a DevOps Enthusiast-focused full-stack engineer based in Kolkata, India. I primarily
-              build and work on APIs and backend services using
-              <span className="text-[#4FD1C5] font-medium"> Python</span>,
-              <span className="text-[#4FD1C5] font-medium"> FastAPI</span>,
-              <span className="text-[#4FD1C5] font-medium"> Node.js</span>,
-              <span className="text-[#4FD1C5] font-medium"> Express</span>,
-              <span className="text-[#4FD1C5] font-medium"> PostgreSQL</span>, and
-              <span className="text-[#4FD1C5] font-medium"> Redis</span>. I enjoy designing
+              I&apos;m a DevOps enthusiast and full-stack engineer based in Kolkata, India. I primarily
+              build and work on APIs and backend services using{" "}
+              <span className="text-[#4FD1C5] font-medium">Python</span>,{" "}
+              <span className="text-[#4FD1C5] font-medium">FastAPI</span>,{" "}
+              <span className="text-[#4FD1C5] font-medium">Node.js</span>,{" "}
+              <span className="text-[#4FD1C5] font-medium">Express</span>,{" "}
+              <span className="text-[#4FD1C5] font-medium">PostgreSQL</span>, and{" "}
+              <span className="text-[#4FD1C5] font-medium">Redis</span>. I enjoy designing
               clean architectures, predictable data models, and backend systems that are
               maintainable, efficient, and reliable.
             </p>
-            <br />
-            <p>
-              Beyond application development, I'm passionate about backend infrastructure
+            <p className="mt-4">
+              Beyond application development, I&apos;m passionate about backend infrastructure
               and system design. I regularly work with Docker, Git, Linux, and message
-              queues while exploring distributed systems and cloud-native technologies
-              through hands-on projects.
+              queues while exploring distributed systems and cloud-native technologies.
             </p>
-            <div className="flex mt-4">
-              <Link href="/about"
-                className="flex items-center justify-center text-[#4FD1C5] bg-cyan-500/8 group p-2 rounded-lg border border-cyan-600/10 hover:bg-cyan-500/15 hover:text-orange-400 min-w-36 hover:cursor-pointer
-                            hover:scale-[1.02] duration-200 gap-2
-                            ">
-                <MdOutlineReadMore size={20} /> know more
+            <div className="flex mt-5">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-[#4FD1C5] bg-[#4FD1C5]/10 px-4 py-2 rounded-lg border border-[#4FD1C5]/20 hover:bg-[#4FD1C5]/20 hover:text-orange-400 font-mono text-xs transition-all duration-200"
+              >
+                <MdOutlineReadMore size={18} /> know more
               </Link>
             </div>
           </Endpoint>
         </section>
 
-        {/* stack */}
-        <section id="stack" className="py-9">
-          <SectionLabel method="GET"> <span>/stack?<span className="text-orange-400 space-x-0">learning=endless</span></span></SectionLabel>
-          <div className="hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
+        {/* Tech Stack Floating Section */}
+        <section id="stack" className="py-6">
+          <SectionLabel method="GET">
+            <span>
+              /stack?<span className="text-orange-400">learning=endless</span>
+            </span>
+          </SectionLabel>
+          <Reveal>
             <TechStackFloat />
-          </div>
+          </Reveal>
         </section>
 
-        {/* focus */}
-        <section id="focus" className="py-9">
+        {/* Focus Section */}
+        <section id="focus" className="py-6">
           <SectionLabel method="GET"> /focus</SectionLabel>
           <Endpoint>
             <p>
@@ -139,21 +82,21 @@ export default function Portfolio() {
 
             <p className="mt-4">
               I believe good engineers are adaptable, so I actively explore new technologies,
-              frameworks, and tools beyond my current stack. Whether it's improving existing systems,
+              frameworks, and tools beyond my current stack. Whether it&apos;s improving existing systems,
               experimenting with emerging ideas, or diving into areas like Agentic AI, I enjoy the
               process of learning, building, and staying close to the future of technology.
             </p>
           </Endpoint>
         </section>
 
-        {/* looking for */}
-        <section id="looking-for" className="py-9">
+        {/* Looking for / Connect Section */}
+        <section id="looking-for" className="py-6">
           <SectionLabel method="POST"> /collab</SectionLabel>
           <Reveal>
             <Connect />
           </Reveal>
         </section>
-      </div>
+      </main>
     </div>
   );
 }

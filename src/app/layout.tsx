@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = "https://developerabhishek.me"; 
+const siteUrl = "https://developerabhishek.me";
 
 export const metadata: Metadata = {
   // metadataBase lets you use relative paths everywhere below (OG images, etc.)

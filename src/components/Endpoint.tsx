@@ -1,15 +1,30 @@
+import React from "react";
 import Reveal from "./Reveal";
 
-function Endpoint({ children, }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <Reveal>
-      <div className="border border-[#26314f] rounded-lg bg-[#121A2E] mb-3.5 overflow-hidden hover:scale-[1.01] duration-200 hover:shadow-[0_30px_60px_-40px_rgba(34,211,238,0.2)]">
-        <div className="flex items-center gap-3 px-4.5 py-3.5 font-mono text-[13.5px]">
-        </div>
-        <div className="px-2 pb-4 text-[#7C8AA8] text-[14.5px]">{children}</div>
-      </div>
-    </Reveal>
-  );
+interface EndpointProps {
+  children: React.ReactNode;
+  className?: string;
+  disableReveal?: boolean;
 }
 
-export default Endpoint;
+export default function Endpoint({
+  children,
+  className = "",
+  disableReveal = false,
+}: EndpointProps) {
+  const content = (
+    <div
+      className={`border border-[#26314f] rounded-xl bg-[#121A2E] mb-4 overflow-hidden transition-all duration-200 hover:scale-[1.01] hover:border-[#4FD1C5]/30 hover:shadow-[0_20px_50px_-30px_rgba(79,209,197,0.15)] ${className}`}
+    >
+      <div className="p-5 md:p-6 text-[#7C8AA8] text-[14.5px] leading-relaxed">
+        {children}
+      </div>
+    </div>
+  );
+
+  if (disableReveal) {
+    return content;
+  }
+
+  return <Reveal>{content}</Reveal>;
+}
