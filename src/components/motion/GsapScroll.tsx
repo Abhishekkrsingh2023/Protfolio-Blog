@@ -8,25 +8,27 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-interface RevealProps {
+interface GsapRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  y?: number;
   duration?: number;
+  yOffset?: number;
+  stagger?: number;
 }
 
-export default function Reveal({
+export default function GsapReveal({
   children,
   className = "",
   delay = 0,
-  y = 24,
-  duration = 0.7,
-}: RevealProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  duration = 0.8,
+  yOffset = 30,
+  stagger = 0,
+}: GsapRevealProps) {
+  const elRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const el = containerRef.current;
+    const el = elRef.current;
     if (!el) return;
 
     const prefersReducedMotion = window.matchMedia(
@@ -39,21 +41,25 @@ export default function Reveal({
     }
 
     const ctx = gsap.context(() => {
+      const targets =
+        stagger > 0 && el.children.length > 0 ? el.children : el;
+
       gsap.fromTo(
-        el,
+        targets,
         {
           opacity: 0,
-          y,
+          y: yOffset,
         },
         {
           opacity: 1,
           y: 0,
           duration,
           delay,
-          ease: "power2.out",
+          stagger: stagger > 0 ? stagger : 0,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 90%",
+            start: "top 88%",
             toggleActions: "play none none none",
             once: true,
           },
@@ -62,10 +68,10 @@ export default function Reveal({
     }, el);
 
     return () => ctx.revert();
-  }, [delay, y, duration]);
+  }, [delay, duration, yOffset, stagger]);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={elRef} className={className}>
       {children}
     </div>
   );

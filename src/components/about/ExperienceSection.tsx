@@ -8,38 +8,38 @@ const ExperienceCard = ({ card }: { card: ExperienceItem }) => {
     <div className="flex flex-col">
       <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
         <div>
-          <h3 className="text-gray-200 font-mono text-base font-semibold">
+          <h3 className="text-white font-mono text-base sm:text-lg font-bold">
             {card.title}
           </h3>
-          <span className="text-[#4FD1C5] font-mono text-sm">{card.company}</span>
+          <span className="text-[#4FD1C5] font-mono text-sm font-semibold">{card.company}</span>
         </div>
-        <span className="text-[#7C8AA8] text-xs font-mono">
+        <span className="text-[#7C8AA8] text-xs font-mono px-2.5 py-1 rounded-full bg-[#162038] border border-[#26314f]">
           {card.duration}
         </span>
       </div>
 
-      <p className="text-[#7C8AA8] text-sm mb-4 leading-relaxed">
+      <p className="text-[#94A3B8] text-xs sm:text-sm mb-4 leading-relaxed">
         {card.summary}
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {card.techStack.map((tech) => (
           <span
             key={tech}
-            className="px-2.5 py-1 text-[11px] font-mono bg-[#1A2340] text-[#4FD1C5] border border-[#26314f] rounded"
+            className="px-2.5 py-0.5 text-[11px] font-mono bg-[#162038] text-[#4FD1C5] border border-[#26314f] rounded-md font-medium"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <ul className="space-y-2 text-[#7C8AA8] text-sm">
+      <ul className="space-y-2 text-[#7C8AA8] text-xs sm:text-sm">
         {card.details.map((detail, index) => (
-          <li key={index} className="flex items-start gap-2">
+          <li key={index} className="flex items-start gap-2.5">
             <span className="text-[#4FD1C5] mt-1 shrink-0">
-              <FaRegDotCircle size={12} />
+              <FaRegDotCircle size={11} />
             </span>
-            <span>{detail}</span>
+            <span className="text-[#A5B4D6] leading-relaxed">{detail}</span>
           </li>
         ))}
       </ul>

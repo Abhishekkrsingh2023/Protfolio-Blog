@@ -14,9 +14,9 @@ export default function Endpoint({
 }: EndpointProps) {
   const content = (
     <div
-      className={`border border-[#26314f] rounded-xl bg-[#121A2E] mb-4 overflow-hidden transition-all duration-200 hover:scale-[1.01] hover:border-[#4FD1C5]/30 hover:shadow-[0_20px_50px_-30px_rgba(79,209,197,0.15)] ${className}`}
+      className={`glass-panel rounded-2xl mb-5 overflow-hidden transition-all duration-300 hover:border-[#4FD1C5]/40 hover:shadow-[0_15px_35px_-15px_rgba(79,209,197,0.15)] ${className}`}
     >
-      <div className="p-5 md:p-6 text-[#7C8AA8] text-[14.5px] leading-relaxed">
+      <div className="p-6 md:p-7 text-[#94A3B8] text-[14.5px] leading-relaxed">
         {children}
       </div>
     </div>

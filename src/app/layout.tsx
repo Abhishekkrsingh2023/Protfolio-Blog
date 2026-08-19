@@ -1,53 +1,49 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono } from "next/font/google";
-import { Space_Grotesk } from "next/font/google";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
+import ParticleBackground from "@/components/graphics/ParticleBackground";
 
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-sans-custom",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono-custom",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const siteUrl = "https://developerabhishek.me";
 
 export const metadata: Metadata = {
-  // metadataBase lets you use relative paths everywhere below (OG images, etc.)
   metadataBase: new URL(siteUrl),
-
-  // Title has a "template" so every page can just set its own short title,
-  // and it auto-appends your site name — DRY, consistent branding
   title: {
-    default: "Abhishek Singh | Full Stack Developer & DevOps Engineer",
+    default: "Abhishek Singh | Backend & Full Stack Engineer",
     template: "%s | Abhishek Singh",
   },
-
   description:
-    "Portfolio and blog of Abhishek Singh — Full Stack Developer & DevOps enthusiast building responsive, user-friendly web applications with modern technologies.",
-
+    "Portfolio of Abhishek Singh — Backend & Full-Stack Developer specializing in Python, FastAPI, Node.js, distributed systems, and DevOps.",
   keywords: [
     "Abhishek Singh",
-    "Full Stack Developer",
+    "Backend Developer",
+    "Python Developer",
+    "FastAPI",
     "DevOps",
-    "Next.js Developer",
-    "Portfolio",
+    "Full Stack",
+    "Distributed Systems",
+    "Next.js",
   ],
-
   authors: [{ name: "Abhishek Singh", url: siteUrl }],
   creator: "Abhishek Singh",
   publisher: "Abhishek Singh",
-
-  // Tells crawlers "yes, index this, follow links" — explicit is better than default
   robots: {
     index: true,
     follow: true,
@@ -58,18 +54,16 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
-  // Open Graph — controls link previews on LinkedIn, Slack, Discord, Facebook
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName: "Abhishek Singh",
-    title: "Abhishek Singh | Full Stack Developer & DevOps Engineer",
+    title: "Abhishek Singh | Backend & Full Stack Engineer",
     description:
-      "Portfolio and blog of Abhishek Singh — Full Stack Developer & DevOps enthusiast.",
+      "Backend & Full-Stack Developer specializing in Python, FastAPI, Node.js, and scalable cloud systems.",
     images: [
       {
-        url: "/my-pic.png", // resolved against metadataBase, put in /public
+        url: "/images/my-pic.png",
         width: 1200,
         height: 630,
         alt: "Abhishek Singh Portfolio",
@@ -77,25 +71,19 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
   },
-
-  // Favicons / app icons
   icons: {
     icon: "/favicon.ico",
   },
-
-  // Canonical URL for the homepage — prevents duplicate-content confusion
   alternates: {
     canonical: siteUrl,
   },
 };
 
-// viewport & theme-color moved here — Next.js 14+ separates this from `metadata`
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f172a", // match your brand/dark bg
+  themeColor: "#0B1120",
 };
-
 
 export default function RootLayout({
   children,
@@ -106,10 +94,11 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar >
+      <body className="min-h-full flex flex-col bg-[#0B1120] text-[#E8ECF4] font-sans relative overflow-x-hidden selection:bg-[#4FD1C5]/30 selection:text-white">
+        <ParticleBackground />
+        <Navbar>
           {children}
           <Footer />
         </Navbar>
