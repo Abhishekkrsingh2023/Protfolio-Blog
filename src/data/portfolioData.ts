@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     title: "Jobify | AI Resume Analyser",
     summary: "AI-powered resume analysis and job matching platform that evaluates candidate fit, identifies skill gaps, and generates personalized interview preparation roadmaps.",
     date: "2026",
-    image: "/project-images/jobify.png",
+    image: "/project-images/Jobify.png",
     techStack: ["Python", "FastAPI", "React", "Google GenAI", "MongoDB", "Clerk"],
     codeUrl: "https://github.com/Abhishekkrsingh2023/Jobify",
     liveUrl: "https://jobify.developerabhishek.me",
