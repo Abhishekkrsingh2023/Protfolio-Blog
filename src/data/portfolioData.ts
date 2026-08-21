@@ -2,6 +2,31 @@ import { Project, UnderBuildProject, ExperienceItem, Certification } from "@/typ
 
 export const PROJECTS: Project[] = [
   {
+    id: "jobify-resume-analyser",
+    title: "Jobify | AI Resume Analyser",
+    summary: "AI-powered resume analysis and job matching platform that evaluates candidate fit, identifies skill gaps, and generates personalized interview preparation roadmaps.",
+    date: "2026",
+    image: "/project-images/jobify.png",
+    techStack: ["Python", "FastAPI", "React", "Google GenAI", "MongoDB", "Clerk"],
+    codeUrl: "https://github.com/Abhishekkrsingh2023/Jobify",
+    liveUrl: "https://jobify.developerabhishek.me",
+    live: true,
+    role: "Full-Stack Developer | GenAI",
+    status: "Completed",
+    description: `An AI-powered career preparation platform that analyzes a candidate's resume against a target job description to determine job compatibility. Jobify extracts structured resume data from PDFs, evaluates candidates across five weighted categories, identifies critical skill gaps, generates personalized technical and behavioral interview questions, and creates a phased preparation roadmap.`,
+    features: [
+      "AI-powered resume and job description analysis using Google GenAI",
+      "Five-category weighted scoring across skills, experience, responsibilities, projects, and education",
+      "Dynamic skill gap detection with prioritized missing skills",
+      "Personalized technical and behavioral interview question generation",
+      "Phased preparation roadmap with milestones and estimated effort",
+      "PDF resume parsing and structured content extraction using pypdf",
+      "Secure authentication with Clerk and MongoDB-backed data persistence",
+      "FastAPI REST APIs with asynchronous request handling",
+      "React-based interactive dashboard for analysis and preparation tracking",
+    ],
+  },
+  {
     id: "portfolio-website",
     title: "Portfolio & Blog Engine",
     summary: "Modern developer portfolio built with Next.js, GSAP scroll animations, and interactive particle constellation graphics.",
