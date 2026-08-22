@@ -250,7 +250,7 @@ export default function HeroTerminal() {
                   style={{ animationDelay: badge.delay }}
                 >
                   <div
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#121A2E]/95 backdrop-blur-md border shadow-lg hover:scale-110 transition-transform duration-200 cursor-default select-none group/badge"
+                    className="flex items-center gap-1.5 px-3 py-3 rounded-full bg-[#121A2E]/95 backdrop-blur-md border shadow-lg hover:scale-110 transition-transform duration-200 cursor-default select-none group/badge"
                     style={{
                       borderColor: `${badge.color}55`,
                       boxShadow: `0 4px 20px -2px ${badge.color}33`,
@@ -262,9 +262,9 @@ export default function HeroTerminal() {
                     >
                       {badge.icon}
                     </span>
-                    <span className="text-[11px] font-mono font-medium text-[#E8ECF4] tracking-tight">
+                    {/* <span className="text-[11px] font-mono font-medium text-[#E8ECF4] tracking-tight">
                       {badge.name}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               ))}
